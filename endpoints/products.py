@@ -16,4 +16,4 @@ async def read_products(products: ProductRepository = Depends(get_product_reposi
 async def create_job(
     p: ProductIn,
     products: ProductRepository = Depends(get_product_repository)):
-    return await products.create(p = p)
+    return await products.create(p =  p)
