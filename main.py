@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from db.base import database
 import uvicorn
 from endpoints import products
-from gi
+
 app = FastAPI(title = "Shop")
 app.include_router(products.router, prefix="/product", tags = ["products"])
 @app.on_event("shutdown")
