@@ -4,6 +4,7 @@ import uvicorn
 from endpoints import products
 
 app = FastAPI(title = "Shop")
+print("test")
 app.include_router(products.router, prefix="/product", tags = ["products"])
 @app.on_event("shutdown")
 async def shutdown():
