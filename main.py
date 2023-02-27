@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from db.base import database
 import uvicorn
-from endpoints import products, f
+from endpoints import products
 app = FastAPI(title = "Shop")
 print("test")
 app.include_router(products.router, prefix="/product", tags = ["products"])
