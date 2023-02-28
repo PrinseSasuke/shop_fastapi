@@ -1,10 +1,11 @@
 from fastapi import FastAPI
-from db.base import database
+from app.db.base import database
 import uvicorn
-from endpoints import products
+from app.endpoints import products
+from starlette.staticfiles import StaticFiles
 
 app = FastAPI(title = "Shop")
-print("test")
+#app.mount(path="/static",app = StaticFiles(directory="todo/staticcss"), name = "static")
 app.include_router(products.router, prefix="/product", tags = ["products"])
 @app.on_event("shutdown")
 async def shutdown():

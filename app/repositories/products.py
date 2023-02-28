@@ -1,7 +1,7 @@
 from typing import List, Optional
 import datetime
-from models.product import Product, ProductIn
-from db.products import products
+from app.models.product import Product, ProductIn
+from app.db.products import products
 from .base import BaseRepository
 
 class ProductRepository(BaseRepository):
