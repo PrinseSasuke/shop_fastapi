@@ -3,7 +3,7 @@ from app.db.base import database
 import uvicorn
 from app.endpoints import products, users
 from starlette.staticfiles import StaticFiles
-
+from app.endpoints import products
 app = FastAPI(title = "Shop")
 #app.mount(path="/static",app = StaticFiles(directory="todo/staticcss"), name = "static")
 app.include_router(products.router, prefix="/product", tags = ["products"])
