@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 from app.db.base import database
 import uvicorn
-from app.endpoints import products
+from app.endpoints import products, users
 from starlette.staticfiles import StaticFiles
 
 app = FastAPI(title = "Shop")
 #app.mount(path="/static",app = StaticFiles(directory="todo/staticcss"), name = "static")
 app.include_router(products.router, prefix="/product", tags = ["products"])
+app.include_router(users.router, prefix = "/user", tags=["users"])
 @app.on_event("shutdown")
 async def shutdown():
     await database.disconnect()
